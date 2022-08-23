@@ -1,10 +1,10 @@
 # Define rules for building the core game library
 
 # Set files to be included in the header list
-file(GLOB HEADERS_LIST "game.hpp")
+file(GLOB HEADERS_LIST "game.hpp" "pieces/*.hpp")
 
 # Set files to be included in the source list
-file(GLOB SOURCES_LIST "game.cpp")
+file(GLOB SOURCES_LIST "game.cpp" "pieces/*.cpp")
 
 # Make static library
 # We are literally just structuring our code here, so we don't need to worry about other users
