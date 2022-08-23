@@ -10,3 +10,6 @@ target_link_libraries(raychess PRIVATE raylib)
 
 # Add the common features directory
 add_subdirectory(common)
+
+# Add the game core directory
+add_subdirectory(raychess_core)
