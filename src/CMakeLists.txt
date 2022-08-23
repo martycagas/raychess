@@ -7,3 +7,6 @@ target_compile_features(raychess PRIVATE cxx_std_14)
 
 # Link raylib to the executable
 target_link_libraries(raychess PRIVATE raylib)
+
+# Add the common features directory
+add_subdirectory(common)
