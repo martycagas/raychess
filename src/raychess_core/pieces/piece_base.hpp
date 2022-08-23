@@ -67,8 +67,7 @@ namespace raychess
          *
          * This method is needed to support the pawns.
          *
-         * @return      A vector of all possible moves for the piece, that can only end with an
-         * attack.
+         * @return      A vector of all possible attack-only moves for the piece.
          */
         virtual std::vector<Position2D> GetAttackOnlyMoves(void) noexcept { return {}; }
 
