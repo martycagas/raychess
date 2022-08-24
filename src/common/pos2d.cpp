@@ -98,3 +98,8 @@ inline bool Position2D::operator!=(const Position2D &rhs) const noexcept
 {
     return (x != rhs.x || y != rhs.y);
 }
+
+inline bool Position2D::IsOutOfBounds(const int dim_x, const int dim_y) const noexcept
+{
+    return (x < 0 || x >= dim_x || y < 0 || y >= dim_y);
+}
