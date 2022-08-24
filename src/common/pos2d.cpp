@@ -61,18 +61,18 @@ inline Position2D Position2D::operator+(const Position2D &rhs) const noexcept
     return Position2D(x + rhs.x, y + rhs.y);
 }
 
-inline void Position2D::operator+=(const Position2D &rhs)
+inline void Position2D::operator+=(const Position2D &rhs) noexcept
 {
     x += rhs.x;
     y += rhs.y;
 }
 
-inline Position2D Position2D::operator-(const Position2D &rhs) const
+inline Position2D Position2D::operator-(const Position2D &rhs) const noexcept
 {
     return Position2D(x - rhs.x, y - rhs.y);
 }
 
-inline void Position2D::operator-=(const Position2D &rhs)
+inline void Position2D::operator-=(const Position2D &rhs) noexcept
 {
     x -= rhs.x;
     y -= rhs.y;
@@ -89,12 +89,12 @@ inline void Position2D::operator*=(const int &rhs) noexcept
     y *= rhs;
 }
 
-inline bool Position2D::operator==(const Position2D &rhs) const
+inline bool Position2D::operator==(const Position2D &rhs) const noexcept
 {
     return (x == rhs.x && y == rhs.y);
 }
 
-inline bool Position2D::operator!=(const Position2D &rhs) const
+inline bool Position2D::operator!=(const Position2D &rhs) const noexcept
 {
     return (x != rhs.x || y != rhs.y);
 }
