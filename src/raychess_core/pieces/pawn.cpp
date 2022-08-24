@@ -18,11 +18,11 @@ std::vector<Position2D> Pawn::GetMoves(void) noexcept
     moves.reserve(2);
 
     // The pawn can move forward one square
-    moves.push_back(position_ + Position2D::Direction2D::UP);
+    moves.push_back(position_ + Position2D(Position2D::Direction2D::UP));
 
     // If it hasn't moved yet, also add movement two squares ahead
     if (!has_moved_) {
-        moves.push_back(position_ + Position2D::Direction2D::UP + Position2D::Direction2D::UP);
+        moves.push_back(position_ + Position2D(0, 2));
     }
 
     return moves;
@@ -34,8 +34,8 @@ std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) noexcept
     moves.reserve(2);
 
     // The pawn can attack one square diagonally forward
-    moves.push_back(position_ + Position2D::Direction2D::UP_LEFT);
-    moves.push_back(position_ + Position2D::Direction2D::UP_RIGHT);
+    moves.push_back(position_ + Position2D(Position2D::Direction2D::UP_LEFT));
+    moves.push_back(position_ + Position2D(Position2D::Direction2D::UP_RIGHT));
 
     return moves;
 }

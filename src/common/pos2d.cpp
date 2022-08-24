@@ -61,66 +61,10 @@ inline Position2D Position2D::operator+(const Position2D &rhs) const noexcept
     return Position2D(x + rhs.x, y + rhs.y);
 }
 
-inline Position2D Position2D::operator+(const Direction2D &rhs) const noexcept
-{
-    switch (rhs) {
-        case Direction2D::UP:
-            return Position2D(x, y + 1);
-        case Direction2D::DOWN:
-            return Position2D(x, y - 1);
-        case Direction2D::LEFT:
-            return Position2D(x - 1, y);
-        case Direction2D::RIGHT:
-            return Position2D(x + 1, y);
-        case Direction2D::UP_LEFT:
-            return Position2D(x - 1, y + 1);
-        case Direction2D::UP_RIGHT:
-            return Position2D(x + 1, y + 1);
-        case Direction2D::DOWN_LEFT:
-            return Position2D(x - 1, y - 1);
-        case Direction2D::DOWN_RIGHT:
-            return Position2D(x + 1, y - 1);
-    }
-}
-
 inline void Position2D::operator+=(const Position2D &rhs)
 {
     x += rhs.x;
     y += rhs.y;
-}
-
-inline void Position2D::operator+=(const Direction2D &rhs)
-{
-    switch (rhs) {
-        case Direction2D::UP:
-            y += 1;
-            break;
-        case Direction2D::DOWN:
-            y -= 1;
-            break;
-        case Direction2D::LEFT:
-            x -= 1;
-            break;
-        case Direction2D::RIGHT:
-            x += 1;
-            break;
-        case Direction2D::UP_LEFT:
-            x -= 1;
-            y += 1;
-            break;
-        case Direction2D::UP_RIGHT:
-            x += 1;
-            y += 1;
-            break;
-        case Direction2D::DOWN_LEFT:
-            x -= 1;
-            y -= 1;
-            break;
-        case Direction2D::DOWN_RIGHT:
-            x += 1;
-            y -= 1;
-            break;
-    }
 }
 
 inline Position2D Position2D::operator-(const Position2D &rhs) const

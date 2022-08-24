@@ -79,29 +79,11 @@ namespace raychess
         inline Position2D operator+(const Position2D &rhs) const noexcept;
 
         /**
-         * @brief       Adds a Position2D::Direction2D to this one and returns the result. Saves
-         * having to create a new Position2D from Position2D::Direction2D.
-         *
-         * @param[in]   rhs  The Position2D::Direction2D to add.
-         *
-         * @return      A new Position2D with the result of the addition.
-         */
-        inline Position2D operator+(const Direction2D &rhs) const noexcept;
-
-        /**
          * @brief       Adds another Position2D to this one.
          *
          * @param[in]   rhs  The Position2D to add.
          */
         inline void operator+=(const Position2D &rhs) noexcept;
-
-        /**
-         * @brief       Adds a Position2D::Direction2D to this one. Saves having to create a new
-         * Position2D from Position2D::Direction2D.
-         *
-         * @param[in]   rhs  The Position2D::Direction2D to add.
-         */
-        inline void operator+=(const Direction2D &rhs) noexcept;
 
         /**
          * @brief       Subtracts another Position2D from this one and returns the result.
