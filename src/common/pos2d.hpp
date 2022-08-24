@@ -102,6 +102,22 @@ namespace raychess
         inline void operator-=(const Position2D &rhs) noexcept;
 
         /**
+         * @brief       Multiplies this Position2D by a scalar and returns the result.
+         *
+         * @param[in]   scalar  The scalar to multiply by.
+         *
+         * @return      A new Position2D with the result of the multiplication.
+         */
+        inline Position2D operator*(const int &rhs) const noexcept;
+
+        /**
+         * @brief       Multiplies this Position2D by a scalar.
+         *
+         * @param[in]   scalar  The scalar to multiply by.
+         */
+        inline void operator*=(const int &rhs) noexcept;
+
+        /**
          * @brief       Compares this Position2D to another.
          *
          * @param[in]   rhs  The Position2D to compare to.

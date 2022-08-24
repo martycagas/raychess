@@ -78,6 +78,17 @@ inline void Position2D::operator-=(const Position2D &rhs)
     y -= rhs.y;
 }
 
+inline Position2D Position2D::operator*(const int &rhs) const noexcept
+{
+    return Position2D(x * rhs, y * rhs);
+}
+
+inline void Position2D::operator*=(const int &rhs) noexcept
+{
+    x *= rhs;
+    y *= rhs;
+}
+
 inline bool Position2D::operator==(const Position2D &rhs) const
 {
     return (x == rhs.x && y == rhs.y);
