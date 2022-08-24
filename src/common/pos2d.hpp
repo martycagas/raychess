@@ -23,11 +23,11 @@ namespace raychess
      *
      * Following chess conventions, the origin is the bottom left corner. In other words,
      * Position2D(0, 0) is equivalent to A1 in chess notation. This is important for proper usage of
-     * the nested enum class Position2D::Direction.
+     * the nested enum class Position2D::Direction2D.
      */
     struct Position2D
     {
-        enum class Direction
+        enum class Direction2D
         {
             UP,
             DOWN,
@@ -65,18 +65,28 @@ namespace raychess
         /**
          * @brief       Direction-based constructor. Initializes to (0, 0) + direction.
          *
-         * @param[in]   direction  The direction to initialize to.
+         * @param[in]   direction  The Position2D::Direction2D to initialize to.
          */
-        Position2D(Direction direction) noexcept;
+        Position2D(Direction2D direction) noexcept;
 
         /**
-         * @brief       Adds another Position2D to this one.
+         * @brief       Adds another Position2D to this one and returns the result.
          *
          * @param[in]   rhs  The Position2D to add.
          *
          * @return      A new Position2D with the result of the addition.
          */
         inline Position2D operator+(const Position2D &rhs) const noexcept;
+
+        /**
+         * @brief       Adds a Position2D::Direction2D to this one and returns the result. Saves
+         * having to create a new Position2D from Position2D::Direction2D.
+         *
+         * @param[in]   rhs  The Position2D::Direction2D to add.
+         *
+         * @return      A new Position2D with the result of the addition.
+         */
+        inline Position2D operator+(const Direction2D &rhs) const noexcept;
 
         /**
          * @brief       Adds another Position2D to this one.
@@ -86,7 +96,15 @@ namespace raychess
         inline void operator+=(const Position2D &rhs) noexcept;
 
         /**
-         * @brief       Subtracts another Position2D from this one.
+         * @brief       Adds a Position2D::Direction2D to this one. Saves having to create a new
+         * Position2D from Position2D::Direction2D.
+         *
+         * @param[in]   rhs  The Position2D::Direction2D to add.
+         */
+        inline void operator+=(const Direction2D &rhs) noexcept;
+
+        /**
+         * @brief       Subtracts another Position2D from this one and returns the result.
          *
          * @param[in]   rhs  The Position2D to subtract.
          *
