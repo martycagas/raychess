@@ -19,21 +19,35 @@ std::vector<Position2D> Pawn::GetMoves(void) noexcept
 
     // Pawn's movement direction depends on the colour of the piece
     if (colour_ == PieceColour::WHITE) {
-        // The pawn can move forward one square
-        moves.push_back(position_ + Position2D(Position2D::Direction2D::UP));
+        Position2D new_position = position_ + Position2D(Position2D::Direction2D::UP);
+        // The pawn can move forward one square, but not out of bounds.
+        if (!new_position.IsOutOfBounds(8, 8)) {
+            moves.push_back(new_position);
+        }
 
-        // If it hasn't moved yet, also add movement two squares ahead
+        // Prepare a second double move...
+        new_position += Position2D(Position2D::Direction2D::UP);
+        // ... but only if it's the first move of the pawn
+        // Realistically it's not necessary to check out of bounds. The pawn can't be on the first
+        // rank.
         if (!has_moved_) {
-            moves.push_back(position_ + Position2D(0, 2));
+            moves.push_back(new_position);
         }
     }
     else {
-        // The pawn can move forward one square
-        moves.push_back(position_ + Position2D(Position2D::Direction2D::DOWN));
+        Position2D new_position = position_ + Position2D(Position2D::Direction2D::DOWN);
+        // The pawn can move forward one square, but not out of bounds.
+        if (!new_position.IsOutOfBounds(8, 8)) {
+            moves.push_back(new_position);
+        }
 
-        // If it hasn't moved yet, also add movement two squares ahead
+        // Prepare a second double move...
+        new_position += Position2D(Position2D::Direction2D::DOWN);
+        // ... but only if it's the first move of the pawn
+        // Realistically it's not necessary to check out of bounds. The pawn can't be on the first
+        // rank.
         if (!has_moved_) {
-            moves.push_back(position_ + Position2D(0, -2));
+            moves.push_back(new_position);
         }
     }
 
@@ -47,13 +61,27 @@ std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) noexcept
 
     if (colour_ == PieceColour::WHITE) {
         // The pawn can attack one square diagonally forward
-        moves.push_back(position_ + Position2D(Position2D::Direction2D::UP_LEFT));
-        moves.push_back(position_ + Position2D(Position2D::Direction2D::UP_RIGHT));
+        Position2D new_position = position_ + Position2D(Position2D::Direction2D::UP_RIGHT);
+        if (!new_position.IsOutOfBounds(8, 8)) {
+            moves.push_back(new_position);
+        }
+
+        new_position = position_ + Position2D(Position2D::Direction2D::UP_LEFT);
+        if (!new_position.IsOutOfBounds(8, 8)) {
+            moves.push_back(new_position);
+        }
     }
     else {
         // The pawn can attack one square diagonally forward
-        moves.push_back(position_ + Position2D(Position2D::Direction2D::DOWN_LEFT));
-        moves.push_back(position_ + Position2D(Position2D::Direction2D::DOWN_RIGHT));
+        Position2D new_position = position_ + Position2D(Position2D::Direction2D::DOWN_RIGHT);
+        if (!new_position.IsOutOfBounds(8, 8)) {
+            moves.push_back(new_position);
+        }
+
+        new_position = position_ + Position2D(Position2D::Direction2D::DOWN_LEFT);
+        if (!new_position.IsOutOfBounds(8, 8)) {
+            moves.push_back(new_position);
+        }
     }
 
     return moves;
