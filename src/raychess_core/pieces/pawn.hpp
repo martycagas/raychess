@@ -53,6 +53,13 @@ namespace raychess
          */
         void Move(Position2D new_position) noexcept override;
 
+        /**
+         * @brief       Checks if the piece can be promoted.
+         *
+         * @return      True if the piece can be promoted, false otherwise.
+         */
+        bool CanBePromoted(void) const noexcept;
+
     private:
         bool has_moved_;
     };

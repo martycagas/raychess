@@ -92,3 +92,13 @@ void Pawn::Move(Position2D new_position) noexcept
     position_ = new_position;
     has_moved_ = true;
 }
+
+bool Pawn::CanBePromoted(void) const noexcept
+{
+    if (colour_ == PieceColour::WHITE) {
+        return position_.y == 7;
+    }
+    else {
+        return position_.y == 0;
+    }
+}
