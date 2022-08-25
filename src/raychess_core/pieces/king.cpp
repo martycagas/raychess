@@ -30,5 +30,6 @@ std::vector<Position2D> King::GetMoves(void) noexcept
             }
         }
     }
+
     return moves;
 }
