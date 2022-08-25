@@ -17,29 +17,20 @@ std::vector<Position2D> Rook::GetMoves(void) noexcept
     std::vector<Position2D> moves;
     moves.reserve(14);
 
-    for (size_t i = 0; i < 4; i++) {
-        // Itereate from 1 to 8 to save us adding that 1 to each case.
-        for (size_t j = 1; j < 9; j++) {
-            Position2D new_position = position_;
-            switch (i) {
-                case 0:
-                    new_position += (Position2D(Position2D::Direction2D::UP) * j);
-                    break;
-                case 1:
-                    new_position += (Position2D(Position2D::Direction2D::DOWN) * j);
-                    break;
-                case 2:
-                    new_position += (Position2D(Position2D::Direction2D::LEFT) * j);
-                    break;
-                case 3:
-                    new_position += (Position2D(Position2D::Direction2D::RIGHT) * j);
-                    break;
+    Position2D new_position;
+
+    for (int i = -1; i <= 1; i++) {
+        for (int j = -1; j <= 1; j++) {
+            // Aternatively, the following condition could be written as:
+            // if (abs(i) == abs(j))
+            // Yes, this is a flex, but I'm not putting it in the actual code.
+            if ((i != 0 && j != 0) || (i == 0 && j == 0)) {
+                continue;
             }
-            if (new_position.IsOutOfBounds(8, 8)) {
-                break; // If a result is out of bounds, we can stop the inner loop.
-            }
-            else {
+            new_position = position_ + Position2D(i, j);
+            while (!new_position.IsOutOfBounds(8, 8)) {
                 moves.push_back(new_position);
+                new_position += Position2D(i, j);
             }
         }
     }

@@ -16,13 +16,19 @@ std::vector<Position2D> King::GetMoves(void) noexcept
 {
     std::vector<Position2D> moves;
     moves.reserve(8);
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::UP));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::DOWN));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::LEFT));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::RIGHT));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::UP_LEFT));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::UP_RIGHT));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::DOWN_LEFT));
-    moves.push_back(position_ + Position2D(Position2D::Direction2D::DOWN_RIGHT));
+
+    Position2D new_position;
+
+    for (int i = -1; i <= 1; i++) {
+        for (int j = -1; j <= 1; j++) {
+            if (i == 0 && j == 0) {
+                continue;
+            }
+            new_position = position_ + Position2D(i, j);
+            if (!new_position.IsOutOfBounds(8, 8)) {
+                moves.push_back(new_position);
+            }
+        }
+    }
     return moves;
 }

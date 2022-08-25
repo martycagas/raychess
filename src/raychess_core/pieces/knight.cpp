@@ -16,13 +16,20 @@ std::vector<Position2D> Knight::GetMoves(void) noexcept
 {
     std::vector<Position2D> moves;
     moves.reserve(8);
-    moves.push_back(position_ + Position2D(1, 2));
-    moves.push_back(position_ + Position2D(1, -2));
-    moves.push_back(position_ + Position2D(-1, 2));
-    moves.push_back(position_ + Position2D(-1, -2));
-    moves.push_back(position_ + Position2D(2, 1));
-    moves.push_back(position_ + Position2D(2, -1));
-    moves.push_back(position_ + Position2D(-2, 1));
-    moves.push_back(position_ + Position2D(-2, -1));
+
+    Position2D new_position;
+
+    for (int i = -2; i <= 2; i++) {
+        for (int j = -2; j <= 2; j++) {
+            if (i == 0 || j == 0 || i == j) {
+                continue;
+            }
+            new_position = position_ + Position2D(i, j);
+            if (!new_position.IsOutOfBounds(8, 8)) {
+                moves.push_back(new_position);
+            }
+        }
+    }
+
     return moves;
 }
