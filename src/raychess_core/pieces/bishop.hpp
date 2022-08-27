@@ -17,7 +17,7 @@
 
 namespace raychess
 {
-    class Bishop : public PieceBase
+    class Bishop final : public PieceBase
     {
     public:
         /**

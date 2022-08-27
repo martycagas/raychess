@@ -17,7 +17,7 @@
 
 namespace raychess
 {
-    class King : public PieceBase
+    class King final : public PieceBase
     {
     public:
         /**

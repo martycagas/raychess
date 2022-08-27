@@ -17,7 +17,7 @@
 
 namespace raychess
 {
-    class Pawn : public PieceBase
+    class Pawn final : public PieceBase
     {
     public:
         /**

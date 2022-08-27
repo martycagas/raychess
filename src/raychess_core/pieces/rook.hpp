@@ -17,7 +17,7 @@
 
 namespace raychess
 {
-    class Rook : public PieceBase
+    class Rook final : public PieceBase
     {
     public:
         /**
