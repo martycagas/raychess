@@ -37,6 +37,13 @@ namespace raychess
         std::vector<Position2D> GetMoves(void) noexcept override;
 
         /**
+         * @brief       Using the default implementation of the Move method.
+         *
+         * @see         PieceBase::Move(Position2D new_position)
+         */
+        using PieceBase::Move;
+
+        /**
          * @brief       Using the default implementation of the GetAttackOnlyMoves method.
          *
          * @see         PieceBase::GetAttackOnlyMoves(void)
@@ -44,10 +51,24 @@ namespace raychess
         using PieceBase::GetAttackOnlyMoves;
 
         /**
-         * @brief       Using the default implementation of the Move method.
+         * @brief       Using the default implementation of the CanEnPassant method.
          *
-         * @see         PieceBase::Move(Position2D new_position)
+         * @see         PieceBase::CanEnPassant(void)
          */
-        using PieceBase::Move;
+        using PieceBase::CanEnPassant;
+
+        /**
+         * @brief       Using the default implementation of the CanBePromoted method.
+         *
+         * @see         PieceBase::CanBePromoted(void)
+         */
+        using PieceBase::CanBePromoted;
+
+        /**
+         * @brief       Using the default implementation of the CanMoveTwoSquares method.
+         *
+         * @see         PieceBase::CanMoveTwoSquares(void)
+         */
+        using PieceBase::CanMoveTwoSquares;
     };
 }  // namespace raychess

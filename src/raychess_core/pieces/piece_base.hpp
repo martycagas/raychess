@@ -62,21 +62,48 @@ namespace raychess
         virtual std::vector<Position2D> GetMoves(void) noexcept = 0;
 
         /**
+         * @brief       Moves the piece to a new position.
+         *
+         * @param[in]   new_position  The new position of the piece.
+         */
+        virtual void Move(Position2D new_position) noexcept { position_ = new_position; }
+
+        /**
          * @brief       Get a vector of all possible moves for the piece, that can only end with an
          * attack.
          *
-         * This method is needed to support the pawns.
+         * Applies onlly to pawns.
          *
          * @return      A vector of all possible attack-only moves for the piece.
          */
         virtual std::vector<Position2D> GetAttackOnlyMoves(void) noexcept { return {}; }
 
         /**
-         * @brief       Moves the piece to a new position.
+         * @brief       Checks if the piece can make an en passant move.
          *
-         * @param[in]   new_position  The new position of the piece.
+         * Applies only to pawns.
+         *
+         * @return      True if the piece can make an en passant move, false otherwise.
          */
-        virtual void Move(Position2D new_position) noexcept { position_ = new_position; }
+        virtual bool CanEnPassant(void) const noexcept { return false; }
+
+        /**
+         * @brief       Checks if the piece can be promoted.
+         *
+         * Applies only to pawns.
+         *
+         * @return      True if the piece can be promoted, false otherwise.
+         */
+        virtual bool CanBePromoted(void) const noexcept { return false; }
+
+        /**
+         * @brief       Checks if the piece can move two squares forward.
+         *
+         * Applies only to pawns.
+         *
+         * @return      True if the piece can move two squares forward, false otherwise.
+         */
+        virtual bool CanMoveTwoSquares(void) const noexcept { return false; }
 
     protected:
         PieceColour colour_;   ///< The colour of the piece.

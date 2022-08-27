@@ -54,6 +54,12 @@ std::vector<Position2D> Pawn::GetMoves(void) noexcept
     return moves;
 }
 
+void Pawn::Move(Position2D new_position) noexcept
+{
+    position_ = new_position;
+    has_moved_ = true;
+}
+
 std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) noexcept
 {
     std::vector<Position2D> moves;
@@ -87,11 +93,7 @@ std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) noexcept
     return moves;
 }
 
-void Pawn::Move(Position2D new_position) noexcept
-{
-    position_ = new_position;
-    has_moved_ = true;
-}
+bool Pawn::CanEnPassant(void) const noexcept { return true; }
 
 bool Pawn::CanBePromoted(void) const noexcept
 {
@@ -102,3 +104,5 @@ bool Pawn::CanBePromoted(void) const noexcept
         return position_.y == 0;
     }
 }
+
+bool Pawn::CanMoveTwoSquares(void) const noexcept { return !has_moved_; }

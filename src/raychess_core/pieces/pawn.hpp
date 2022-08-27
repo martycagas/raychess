@@ -37,6 +37,13 @@ namespace raychess
         std::vector<Position2D> GetMoves(void) noexcept override;
 
         /**
+         * @brief       Moves the piece to the given position while marking the piece as moved.
+         *
+         * @param[in]   new_position  The new position of the piece.
+         */
+        void Move(Position2D new_position) noexcept override;
+
+        /**
          * @brief       Get a vector of all possible moves for the piece, that can only end with an
          * attack.
          *
@@ -47,18 +54,25 @@ namespace raychess
         std::vector<Position2D> GetAttackOnlyMoves(void) noexcept override;
 
         /**
-         * @brief       Moves the piece to the given position while marking the piece as moved.
+         * @brief       Checks if the piece can make an en passant move.
          *
-         * @param[in]   new_position  The new position of the piece.
+         * @return      True if the piece can make an en passant move, false otherwise.
          */
-        void Move(Position2D new_position) noexcept override;
+        bool CanEnPassant(void) const noexcept override;
 
         /**
          * @brief       Checks if the piece can be promoted.
          *
          * @return      True if the piece can be promoted, false otherwise.
          */
-        bool CanBePromoted(void) const noexcept;
+        bool CanBePromoted(void) const noexcept override;
+
+        /**
+         * @brief       Checks if the piece can move two squares forward.
+         *
+         * @return      True if the piece can move two squares forward, false otherwise.
+         */
+        bool CanMoveTwoSquares(void) const noexcept override;
 
     private:
         bool has_moved_;
