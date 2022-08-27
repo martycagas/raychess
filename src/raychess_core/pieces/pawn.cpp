@@ -12,7 +12,7 @@
 
 using namespace raychess;
 
-std::vector<Position2D> Pawn::GetMoves(void) noexcept
+std::vector<Position2D> Pawn::GetMoves(void) const noexcept
 {
     std::vector<Position2D> moves;
     moves.reserve(2);
@@ -60,7 +60,7 @@ void Pawn::Move(Position2D new_position) noexcept
     has_moved_ = true;
 }
 
-std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) noexcept
+std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) const noexcept
 {
     std::vector<Position2D> moves;
     moves.reserve(2);

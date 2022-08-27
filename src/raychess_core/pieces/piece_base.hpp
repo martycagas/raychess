@@ -41,14 +41,14 @@ namespace raychess
          *
          * @return      The colour of the piece.
          */
-        PieceColour GetColour(void) noexcept { return colour_; }
+        PieceColour GetColour(void) const noexcept { return colour_; }
 
         /**
          * @brief       Position getter.
          *
          * @return      The position of the piece.
          */
-        Position2D GetPosition(void) noexcept { return position_; }
+        Position2D GetPosition(void) const noexcept { return position_; }
 
         /**
          * @brief       Get a vector of all possible moves for the piece.
@@ -59,7 +59,7 @@ namespace raychess
          *
          * @return      A vector of all possible moves for the piece.
          */
-        virtual std::vector<Position2D> GetMoves(void) noexcept = 0;
+        virtual std::vector<Position2D> GetMoves(void) const noexcept = 0;
 
         /**
          * @brief       Moves the piece to a new position.
@@ -76,7 +76,7 @@ namespace raychess
          *
          * @return      A vector of all possible attack-only moves for the piece.
          */
-        virtual std::vector<Position2D> GetAttackOnlyMoves(void) noexcept { return {}; }
+        virtual std::vector<Position2D> GetAttackOnlyMoves(void) const noexcept { return {}; }
 
         /**
          * @brief       Checks if the piece can make an en passant move.

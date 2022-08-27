@@ -34,7 +34,7 @@ namespace raychess
          *
          * @return      A vector of all possible moves for the piece.
          */
-        std::vector<Position2D> GetMoves(void) noexcept override;
+        std::vector<Position2D> GetMoves(void) const noexcept override;
 
         /**
          * @brief       Using the default implementation of the Move method.

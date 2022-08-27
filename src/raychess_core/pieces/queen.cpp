@@ -12,7 +12,7 @@
 
 using namespace raychess;
 
-std::vector<Position2D> Queen::GetMoves(void) noexcept
+std::vector<Position2D> Queen::GetMoves(void) const noexcept
 {
     std::vector<Position2D> moves;
     moves.reserve(28);
