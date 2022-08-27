@@ -26,6 +26,10 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "memory": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "atomic": "cpp",
+        "ctime": "cpp",
+        "iosfwd": "cpp",
+        "typeinfo": "cpp"
     }
 }
