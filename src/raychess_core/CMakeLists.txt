@@ -20,3 +20,6 @@ target_compile_features(raychess_core PRIVATE cxx_std_14)
 # Link the shared (common) types library to this library
 target_link_libraries(raychess_core PRIVATE common)
 target_include_directories(raychess_core PRIVATE "../common")
+
+# I'm not sure how correct this is, but it allows me to include in source without relative paths
+target_include_directories(raychess_core PRIVATE "./pieces")
