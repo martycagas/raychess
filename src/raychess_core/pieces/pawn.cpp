@@ -77,7 +77,7 @@ std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) const noexcept
             moves.push_back(new_position);
         }
     }
-    else {
+    else if (colour_ == PieceColour::BLACK) {
         // The pawn can attack one square diagonally forward
         Position2D new_position = position_ + Position2D(Position2D::Direction2D::DOWN_RIGHT);
         if (!new_position.IsOutOfBounds(8, 8)) {
@@ -100,7 +100,7 @@ bool Pawn::CanBePromoted(void) const noexcept
     if (colour_ == PieceColour::WHITE) {
         return position_.y == 7;
     }
-    else {
+    else if (colour_ == PieceColour::BLACK) {
         return position_.y == 0;
     }
 }
