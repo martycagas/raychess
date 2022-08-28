@@ -20,7 +20,7 @@ namespace raychess
     {
     public:
         /**
-         * @brief   Structure representing a piece color.
+         * @brief   Structure representing a piece colour.
          */
         enum class PieceColour
         {
@@ -32,7 +32,7 @@ namespace raychess
         /**
          * @brief       Constructor.
          *
-         * @param[in]   colour  The color of the piece.
+         * @param[in]   colour  The colour of the piece.
          */
         PieceBase(PieceColour colour, Position2D position) noexcept
             : colour_(colour), position_(position){};
