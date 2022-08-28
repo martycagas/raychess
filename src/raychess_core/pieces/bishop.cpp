@@ -33,3 +33,8 @@ std::vector<Position2D> Bishop::GetMoves(void) const noexcept
 
     return moves;
 }
+
+int Bishop::GetPointEvaulation(void) const noexcept
+{
+    return 3;
+}

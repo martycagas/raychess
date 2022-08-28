@@ -34,3 +34,8 @@ std::vector<Position2D> Queen::GetMoves(void) const noexcept
 
     return moves;
 }
+
+int Queen::GetPointEvaulation(void) const noexcept
+{
+    return 9;
+}

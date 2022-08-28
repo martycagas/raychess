@@ -33,3 +33,8 @@ std::vector<Position2D> King::GetMoves(void) const noexcept
 
     return moves;
 }
+
+int King::GetPointEvaulation(void) const noexcept
+{
+    return 0;
+}

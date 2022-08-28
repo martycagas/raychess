@@ -33,3 +33,8 @@ std::vector<Position2D> Knight::GetMoves(void) const noexcept
 
     return moves;
 }
+
+int Knight::GetPointEvaulation(void) const noexcept
+{
+    return 3;
+}

@@ -60,6 +60,11 @@ void Pawn::Move(Position2D new_position) noexcept
     has_moved_ = true;
 }
 
+int Pawn::GetPointEvaulation(void) const noexcept
+{
+    return 1;
+}
+
 std::vector<Position2D> Pawn::GetAttackOnlyMoves(void) const noexcept
 {
     std::vector<Position2D> moves;

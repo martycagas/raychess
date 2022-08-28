@@ -44,6 +44,15 @@ namespace raychess
         using PieceBase::Move;
 
         /**
+         * @brief       Get the point evaluation of the piece.
+         *
+         * @see         PieceBase::GetPointEvaulation()
+         *
+         * @return      The point evaluation of the piece.
+         */
+        int GetPointEvaulation(void) const noexcept override;
+
+        /**
          * @brief       Using the default implementation of the GetAttackOnlyMoves method.
          *
          * @see         PieceBase::GetAttackOnlyMoves(void)

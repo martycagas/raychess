@@ -44,6 +44,15 @@ namespace raychess
         void Move(Position2D new_position) noexcept override;
 
         /**
+         * @brief       Get the point evaluation of the piece.
+         *
+         * @see         PieceBase::GetPointEvaulation()
+         *
+         * @return      The point evaluation of the piece.
+         */
+        int GetPointEvaulation(void) const noexcept override;
+
+        /**
          * @brief       Get a vector of all possible moves for the piece, that can only end with an
          * attack.
          *

@@ -70,6 +70,25 @@ namespace raychess
         virtual void Move(Position2D new_position) noexcept { position_ = new_position; }
 
         /**
+         * @brief       Pure virtual method to get the point evaluation of the piece.
+         *
+         * All pieces have value. This method must be implemented by the derived classes so there is
+         * no point making this method not a pure virtual one. There is no point in a default
+         * implementation.
+         *
+         * The point values can be seen below:
+         *
+         * - Pawn: 1
+         * - Knight: 3
+         * - Bishop: 3
+         * - Rook: 5
+         * - Queen: 9
+         *
+         * @return      The point evaluation of the piece.
+         */
+        virtual int GetPointEvaulation(void) const noexcept = 0;
+
+        /**
          * @brief       Get a vector of all possible moves for the piece, that can only end with an
          * attack.
          *

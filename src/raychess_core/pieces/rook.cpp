@@ -37,3 +37,8 @@ std::vector<Position2D> Rook::GetMoves(void) const noexcept
 
     return moves;
 }
+
+int Rook::GetPointEvaulation(void) const noexcept
+{
+    return 5;
+}
