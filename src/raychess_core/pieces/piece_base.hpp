@@ -20,7 +20,7 @@ namespace raychess
     {
     public:
         /**
-         * @brief   Structure representing a piece colour.
+         * @brief       Structure representing a piece colour.
          */
         enum class PieceColour
         {
