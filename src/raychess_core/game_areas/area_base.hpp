@@ -100,7 +100,7 @@ namespace raychess
          */
         virtual void SortPieces(void) noexcept { return; }
 
-    private:
+    protected:
         int dimension_x_;  ///< The x dimension of the area.
         int dimension_y_;  ///< The y dimension of the area.
     };
