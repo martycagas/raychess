@@ -55,14 +55,17 @@ namespace raychess
             PieceBase::PieceColour which_colour) const noexcept = 0;
 
         /**
-         * @brief       Pure virtual method to get a piece (if any) at the given position.
+         * @brief       Virtual method to get a piece (if any) at the given position.
          *
          * @param[in]   position  The position to get the piece at.
          *
          * @return      A pointer to the piece at the given position, or nullptr if there is no
          * piece at the position.
          */
-        virtual const PieceBase* GetPieceAt(const Position2D& position) const noexcept = 0;
+        virtual const PieceBase* GetPieceAt(const Position2D& position) const noexcept
+        {
+            return nullptr;
+        }
 
         /**
          * @brief       Pure virtual method to add a piece to the area.
