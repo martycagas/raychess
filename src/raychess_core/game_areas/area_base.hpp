@@ -55,19 +55,6 @@ namespace raychess
             PieceBase::PieceColour which_colour) const noexcept = 0;
 
         /**
-         * @brief       Virtual method to get a piece (if any) at the given position.
-         *
-         * @param[in]   position  The position to get the piece at.
-         *
-         * @return      A pointer to the piece at the given position, or nullptr if there is no
-         * piece at the position.
-         */
-        virtual const PieceBase* GetPieceAt(const Position2D& position) const noexcept
-        {
-            return nullptr;
-        }
-
-        /**
          * @brief       Pure virtual method to add a piece to the area.
          *
          * It's up to the derived class to decide where and how to store pieces and how to add them.
@@ -91,20 +78,10 @@ namespace raychess
 
         /**
          * @brief       Pure virtual method to remove all pieces from the area.
+         *
+         * The derived classes can use a different storage method for various pieces.
          */
         virtual void ClearArea(void) noexcept = 0;
-
-        /**
-         * @brief       Virtual method to sort the pieces in the area.
-         *
-         * This method is virtual but not pure virtual. As such, it should be overridden by derived
-         * classes if and only if those areas are meant to be sorted.
-         *
-         * Example of an area that should never be sorted: board area.
-         *
-         * Example of an area that can - but does not have to - be sorted: capture area.
-         */
-        virtual void SortPieces(void) noexcept { return; }
 
     protected:
         int dimension_x_;  ///< The x dimension of the area.
