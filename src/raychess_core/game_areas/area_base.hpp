@@ -92,6 +92,11 @@ namespace raychess
             PieceBase::PieceColour colour = PieceBase::PieceColour::ANY) noexcept = 0;
 
         /**
+         * @brief       Pure virtual method to remove all pieces from the area.
+         */
+        virtual void ClearArea(void) noexcept = 0;
+
+        /**
          * @brief       Virtual method to sort the pieces in the area.
          *
          * This method is virtual but not pure virtual. As such, it should be overridden by derived
