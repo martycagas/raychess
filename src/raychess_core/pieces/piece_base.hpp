@@ -25,8 +25,7 @@ namespace raychess
         enum class PieceColour
         {
             WHITE,
-            BLACK,
-            ANY
+            BLACK
         };
 
         /**

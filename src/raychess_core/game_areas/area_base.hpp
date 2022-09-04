@@ -84,12 +84,10 @@ namespace raychess
          * It's up to the derived class to decide where and how to remove pieces.
          *
          * @param[in]   position  The position of the piece to remove.
-         * @param[in]   colour    The colour of the piece to remove. Defaults to
-         *                        PieceBase::PieceColour::ANY.
+         * @param[in]   colour    The colour of the piece to remove.
          */
-        virtual void RemovePiece(
-            const Position2D& position,
-            PieceBase::PieceColour colour = PieceBase::PieceColour::ANY) noexcept = 0;
+        virtual void RemovePiece(const Position2D& position,
+                                 PieceBase::PieceColour colour) noexcept = 0;
 
         /**
          * @brief       Pure virtual method to remove all pieces from the area.
