@@ -30,6 +30,7 @@
         "atomic": "cpp",
         "ctime": "cpp",
         "iosfwd": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "iterator": "cpp"
     }
 }
