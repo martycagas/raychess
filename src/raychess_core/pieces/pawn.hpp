@@ -34,7 +34,7 @@ namespace raychess
          *
          * @return      A vector of all possible moves for the piece.
          */
-        std::vector<Position2D> GetMoves(void) const noexcept override;
+        std::vector<Position2D> GetMoves(const BoardArea& board) const noexcept override;
 
         /**
          * @brief       Moves the piece to the given position while marking the piece as moved.
@@ -60,7 +60,7 @@ namespace raychess
          *
          * @return      A vector of all possible attack-only moves for the piece.
          */
-        std::vector<Position2D> GetAttackOnlyMoves(void) const noexcept override;
+        std::vector<Position2D> GetAttackOnlyMoves(const BoardArea& board) const noexcept override;
 
         /**
          * @brief       Checks if the piece can make an en passant move.

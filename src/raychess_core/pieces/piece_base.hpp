@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "pos2d.hpp"
+#include "board_area.hpp"
 
 namespace raychess
 {
@@ -59,7 +60,7 @@ namespace raychess
          *
          * @return      A vector of all possible moves for the piece.
          */
-        virtual std::vector<Position2D> GetMoves(void) const noexcept = 0;
+        virtual std::vector<Position2D> GetMoves(const BoardArea& board) const noexcept = 0;
 
         /**
          * @brief       Moves the piece to a new position.
@@ -95,7 +96,7 @@ namespace raychess
          *
          * @return      A vector of all possible attack-only moves for the piece.
          */
-        virtual std::vector<Position2D> GetAttackOnlyMoves(void) const noexcept { return {}; }
+        virtual std::vector<Position2D> GetAttackOnlyMoves(const BoardArea& board) const noexcept { return {}; }
 
         /**
          * @brief       Checks if the piece can make an en passant move.
