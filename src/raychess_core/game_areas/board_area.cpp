@@ -73,3 +73,9 @@ const PieceBase* BoardArea::GetPieceAt(const Position2D& position) const
     }
     return nullptr;
 }
+
+const bool BoardArea::IsWithinBounds(const Position2D& position) const noexcept
+{
+    return (position.x >= 0 && position.x < dimension_x_ && position.y >= 0 &&
+            position.y < dimension_y_);
+}

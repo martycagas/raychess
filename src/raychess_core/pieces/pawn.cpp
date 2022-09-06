@@ -35,8 +35,7 @@ std::vector<Position2D> Pawn::GetMoves(const BoardArea& board) const noexcept
         // The move can only be performed when it is within bounds and there isn't a piece (any
         // piece) at the given position. Given the moves are resolved sequentially in a direct,
         // pieces "in the way" block all other subsequent moves.
-        if (!new_position.IsOutOfBounds(board.GetDimensionX(), board.GetDimensionY()) &&
-            board.GetPieceAt(new_position) == nullptr) {
+        if (board.IsWithinBounds(new_position) && board.GetPieceAt(new_position) == nullptr) {
             moves.push_back(new_position);
         }
         else {
@@ -74,8 +73,7 @@ std::vector<Position2D> Pawn::GetAttackOnlyMoves(const BoardArea& board) const n
         }
 
         // If the tile is within bounds and there is an enemy piece there add it to the list.
-        if (!new_position.IsOutOfBounds(board.GetDimensionX(), board.GetDimensionY()) &&
-            board.GetPieceAt(new_position) != nullptr) {
+        if (board.IsWithinBounds(new_position) && board.GetPieceAt(new_position) != nullptr) {
             moves.push_back(new_position);
         }
     }

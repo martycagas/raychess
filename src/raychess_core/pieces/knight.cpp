@@ -34,7 +34,7 @@ std::vector<Position2D> Knight::GetMoves(const BoardArea& board) const noexcept
             new_position = position_ + Position2D(i, j);
             // The move can be added to the list if it's within bounds and if there is either no
             // piece or an enemy piece.
-            if (!new_position.IsOutOfBounds(board.GetDimensionX(), board.GetDimensionY())) {
+            if (board.IsWithinBounds(new_position)) {
                 if (board.GetPieceAt(new_position) == nullptr ||
                     board.GetPieceAt(new_position)->GetColour() != colour_) {
                     moves.push_back(new_position);

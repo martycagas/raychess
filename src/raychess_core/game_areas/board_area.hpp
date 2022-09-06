@@ -78,6 +78,15 @@ namespace raychess
          */
         const PieceBase* GetPieceAt(const Position2D& position) const;
 
+        /**
+         * @brief       Checks whether a piece is within the board's game area.
+         *
+         * @param[in]   position  The position to check.
+         *
+         * @return      True if the position is within the board's game area, false otherwise.
+         */
+        const bool IsWithinBounds(const Position2D& position) const noexcept;
+
     protected:
         std::vector<PieceBase> white_pieces_;  ///< Collection of white pieces in the area.
         std::vector<PieceBase> black_pieces_;  ///< Collection of black pieces in the area.

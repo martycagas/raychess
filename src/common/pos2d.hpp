@@ -134,12 +134,5 @@ namespace raychess
          * @return      True if the two Position2Ds are not equal, false otherwise.
          */
         inline bool operator!=(const Position2D &rhs) const noexcept;
-
-        /**
-         * @brief Checks whether given position is out of bounds.
-         *
-         * @return True if position is out of bounds, false otherwise.
-         */
-        inline bool IsOutOfBounds(const int dim_x, const int dim_y) const noexcept;
     };
 }  // namespace raychess

@@ -36,7 +36,7 @@ std::vector<Position2D> Rook::GetMoves(const BoardArea& board) const noexcept
             }
             new_position = position_ + Position2D(i, j);
             // First check if the new tile is within bounds.
-            while (!new_position.IsOutOfBounds(board.GetDimensionX(), board.GetDimensionY())) {
+            while (board.IsWithinBounds(new_position)) {
                 // If the given tile is free, add it to the list of possible moves.
                 if (board.GetPieceAt(new_position) == nullptr) {
                     moves.push_back(new_position);
