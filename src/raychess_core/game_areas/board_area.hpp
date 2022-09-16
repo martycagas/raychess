@@ -38,7 +38,7 @@ namespace raychess
          * @return      A const reference to the vector of pieces in the area.
          */
         const std::vector<PieceBase>& GetPiecesByColour(
-            PieceBase::PieceColour which_colour) const override;
+            PieceBase::PieceColour which_colour) const noexcept override;
 
         /**
          * @brief       Method to add a piece to the board area.
@@ -72,7 +72,7 @@ namespace raychess
          * @return      A pointer to the piece at the given position, or nullptr if there is no
          * piece at the position.
          */
-        const PieceBase* GetPieceAt(const Position2D& position) const;
+        const PieceBase* GetPieceAt(const Position2D& position) const noexcept;
 
         /**
          * @brief       Checks whether a piece is within the board's game area.

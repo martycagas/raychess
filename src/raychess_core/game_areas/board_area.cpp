@@ -13,7 +13,7 @@
 using namespace raychess;
 
 const std::vector<PieceBase>& BoardArea::GetPiecesByColour(
-    PieceBase::PieceColour which_colour) const
+    PieceBase::PieceColour which_colour) const noexcept
 {
     if (which_colour == PieceBase::PieceColour::WHITE) {
         return white_pieces_;
@@ -23,7 +23,7 @@ const std::vector<PieceBase>& BoardArea::GetPiecesByColour(
     }
 }
 
-void BoardArea::AddPiece(PieceBase& piece)
+void BoardArea::AddPiece(PieceBase& piece) noexcept
 {
     if (piece.GetColour() == PieceBase::PieceColour::WHITE) {
         white_pieces_.push_back(piece);
@@ -39,7 +39,7 @@ void BoardArea::ClearArea(void) noexcept
     black_pieces_.clear();
 }
 
-void BoardArea::RemovePiece(const Position2D& position, PieceBase::PieceColour colour)
+void BoardArea::RemovePiece(const Position2D& position, PieceBase::PieceColour colour) noexcept
 {
     if (colour == PieceBase::PieceColour::WHITE) {
         for (auto it = white_pieces_.begin(); it != white_pieces_.end(); ++it) {
@@ -59,7 +59,7 @@ void BoardArea::RemovePiece(const Position2D& position, PieceBase::PieceColour c
     }
 }
 
-const PieceBase* BoardArea::GetPieceAt(const Position2D& position) const
+const PieceBase* BoardArea::GetPieceAt(const Position2D& position) const noexcept
 {
     for (const auto& piece : white_pieces_) {
         if (piece.GetPosition() == position) {
