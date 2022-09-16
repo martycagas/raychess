@@ -50,23 +50,19 @@ namespace raychess
         void AddPiece(PieceBase& piece) noexcept override;
 
         /**
-         * @brief       Method to remove a piece from the board area.
-         *
-         * @see         AreaBase::RemovePiece(const Position2D& position,
-         *                                    PieceBase::PieceColour colour)
-         *
-         * @param[in]   position  The position of the piece to remove.
-         * @param[in]   colour    The colour of the piece to remove.
-         */
-        void RemovePiece(const Position2D& position,
-                         PieceBase::PieceColour colour) noexcept override;
-
-        /**
          * @brief       Method to remove all pieces from the area.
          *
          * @see         AreaBase::ClearArea()
          */
         void ClearArea(void) noexcept override;
+
+        /**
+         * @brief       Method to remove a piece from the board area given its position.
+         *
+         * @param[in]   position  The position of the piece to remove.
+         * @param[in]   colour    The colour of the piece to remove.
+         */
+        void RemovePiece(const Position2D& position, PieceBase::PieceColour colour) noexcept;
 
         /**
          * @brief       Method to get a piece (if any) at the given position.

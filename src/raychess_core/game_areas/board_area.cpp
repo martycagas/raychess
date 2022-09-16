@@ -33,6 +33,12 @@ void BoardArea::AddPiece(PieceBase& piece)
     }
 }
 
+void BoardArea::ClearArea(void) noexcept
+{
+    white_pieces_.clear();
+    black_pieces_.clear();
+}
+
 void BoardArea::RemovePiece(const Position2D& position, PieceBase::PieceColour colour)
 {
     if (colour == PieceBase::PieceColour::WHITE) {
@@ -51,12 +57,6 @@ void BoardArea::RemovePiece(const Position2D& position, PieceBase::PieceColour c
             }
         }
     }
-}
-
-void BoardArea::ClearArea(void) noexcept
-{
-    white_pieces_.clear();
-    black_pieces_.clear();
 }
 
 const PieceBase* BoardArea::GetPieceAt(const Position2D& position) const
